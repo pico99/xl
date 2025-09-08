@@ -1,0 +1,9 @@
+=LAMBDA(
+  LET(
+    myrowoffset,1,
+    myrow,ROW()-myrowoffset,
+    leadingzero,"T-0",
+    nozero,"T-",
+    IF(myrow<10,leadingzero&myrow,nozero&myrow)
+  )
+)
