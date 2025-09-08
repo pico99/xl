@@ -1,0 +1,11 @@
+=LAMBDA(whichvalue,
+ LET(
+   fnRaw,CELL("filename",code!XFB3),
+   fnStart,FIND("[",fnRaw)+1,
+   fnEnd,FIND("]",fnRaw),
+   fnLen,FIND(" - 07. A",fnRaw)-8,
+   appID,MID(fnRaw,fnStart,7),
+   appName,MID(fnRaw,fnStart+8,fnLen-fnStart),
+   IF(whichvalue="appID",appID,appName)
+ )
+)
