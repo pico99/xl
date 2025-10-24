@@ -1,0 +1,8 @@
+=LET(comparelookup,
+   LET(
+     matchedstring,XLOOKUP([@number],mytable[number],mytable[more3],"number not found",0),
+     compareleft,LEFT(matchedstring,20),
+     IF(compareleft="is incorrect because",MID(matchedstring,22,LEN(matchedstring)-21),matchedstring)
+   ),
+   IF(OR(comparelookup=[@more1],comparelookup=[@more2]),"dupe",comparelookup)
+)
