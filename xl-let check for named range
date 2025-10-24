@@ -1,0 +1,12 @@
+=LET(
+ matchQA,ISNUMBER(IFERROR(SEARCH("qa",E2),"not qa")),
+ matchTest,ISNUMBER(IFERROR(SEARCH("test",E2),"not test")),
+ matchProd,ISNUMBER(IFERROR(SEARCH("prod",E2),"not qa")),
+ whichEnv,
+  IF(matchQA,"env_qa",
+   IF(matchTest,"env_test",
+    IF(matchProd,"env_prod","missing named env")
+   )
+  ),
+  ISREF(INDIRECT(whichEnv))
+)
